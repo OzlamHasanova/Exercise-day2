@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>Detail</h1>
+<h2>@Model.Name</h2>
+<img src="assets/img/team/@Model.Image" alt="" style="width:150px;height:150px">
+<p>@Model.Position</p>
+<form>
+    <button asp-action="Index">Go Back</button>
+</form>
+
+

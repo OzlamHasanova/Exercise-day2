@@ -1,0 +1,64 @@
+﻿@using Core_bs.Entities
+@model IEnumerable<TeamMember>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Striped Table</h4>
+                  <p class="card-description">
+                     <a asp-action="Create"> Create Member</a>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>
+                            Image
+                          </th>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                            Position
+                          </th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                          @foreach (var item in Model)
+                          {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="assets/img/team/@item.Image" alt="" style="width:150px;height:150px">
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                
+                                <td>
+                                    @item.Position
+                                </td>
+                                <td>
+                                    <a asp-action ="Detail" asp-route-id="@item.Id" class="btn">
+                                        <i class="mdi mdi-information-variant bg-danger" style=" color:cadetblue"></i>
+                                    </a>
+                                    <a asp-action="Update" asp-route-id="@item.Id" class="btn">
+                                        <i class="mdi mdi-update bg-dark" style=" color:aqua"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn">
+                                        <i class="mdi mdi-delete bg-dribbble" style=" color:coral"></i>
+                                    </a>
+                                </td>
+                               
+                            </tr>
+                        }
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+ </div>
